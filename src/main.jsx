@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Download, FileText, IndianRupee, MessageCircle, Plus, Printer, Search, Trash2 } from 'lucide-react';
+import { Download, FileText, MessageCircle, Plus, Printer, Search, Trash2 } from 'lucide-react';
 import './style.css';
 
 const STORAGE_KEY = 'trustbill_ai_records_v1';
@@ -148,19 +148,42 @@ function App() {
 
   return (
     <main className="app-shell">
-      <section className="hero">
-        <div>
-          <div className="pill">TrustBill AI • Tuition Fee Receipts</div>
-          <h1>Simple payment records for tuition teachers.</h1>
-          <p>
-            Create clean receipts, track UPI/fee payments, copy WhatsApp confirmations, and manage pending fee reminders from one dashboard.
-          </p>
-        </div>
-        <div className="hero-card">
-          <IndianRupee size={34} />
-          <strong>{currency(stats.paid)}</strong>
-          <span>Collected fees</span>
-        </div>
+      <section className="atomic-frame">
+        <nav className="top-nav">
+          <div className="brand-mark">trustbill</div>
+          <a href="#records">RECORDS</a>
+          <div className="nav-meta">
+            <span>© TRUSTBILL</span>
+            <span>FEE LEDGER</span>
+          </div>
+        </nav>
+
+        <section className="hero">
+          <div className="showreel">
+            <span className="play-dot">▶</span>
+            <span>FEE<br />CONTROL</span>
+          </div>
+
+          <div className="hero-copy">
+            <h1>Receipts and fee records that feel premium.</h1>
+          </div>
+
+          <div className="hero-numbers">
+            <div><strong>{records.length}+</strong><span>RECEIPTS</span></div>
+            <div><strong>{stats.dueCount}+</strong><span>PENDING</span></div>
+          </div>
+        </section>
+
+        <section className="blue-stage">
+          <div className="floating-receipt receipt-one">
+            <small>COLLECTED</small>
+            <strong>{currency(stats.paid)}</strong>
+          </div>
+          <div className="floating-receipt receipt-two">
+            <small>PENDING</small>
+            <strong>{currency(stats.pending)}</strong>
+          </div>
+        </section>
       </section>
 
       <section className="stats-grid">
@@ -170,7 +193,7 @@ function App() {
         <StatCard title="Due Students" value={stats.dueCount} />
       </section>
 
-      <section className="main-grid">
+      <section className="main-grid" id="records">
         <div className="panel">
           <h2><Plus size={24} /> Add Payment</h2>
           <div className="form-grid two">
