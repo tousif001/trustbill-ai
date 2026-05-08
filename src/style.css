@@ -20,11 +20,10 @@ body::before {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(circle at 18% 28%, rgba(255,255,255,.08), transparent 18%),
-    linear-gradient(120deg, rgba(255,255,255,.08) 0 1px, transparent 1px 72px),
-    linear-gradient(35deg, rgba(255,255,255,.05) 0 1px, transparent 1px 58px),
+    linear-gradient(120deg, rgba(255,255,255,.055) 0 1px, transparent 1px 72px),
+    linear-gradient(35deg, rgba(255,255,255,.04) 0 1px, transparent 1px 58px),
     #151515;
-  background-size: auto, 72px 72px, 58px 58px, auto;
+  background-size: 72px 72px, 58px 58px, auto;
   opacity: .9;
   z-index: -2;
 }
@@ -33,27 +32,27 @@ body::after {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.58);
+  background: rgba(0,0,0,.52);
   z-index: -1;
 }
 
 .app-shell {
   min-height: 100vh;
-  padding: clamp(14px, 4vw, 64px);
+  padding: clamp(14px, 4vw, 56px);
 }
 
 .atomic-frame {
   width: min(1240px, 100%);
   margin: 0 auto 28px;
-  min-height: 760px;
-  background: #020202;
-  border: 1px solid #101010;
-  box-shadow: 0 38px 130px rgba(0,0,0,.78);
+  min-height: 680px;
+  background: #030303;
+  border: 1px solid #141414;
+  box-shadow: 0 38px 130px rgba(0,0,0,.74);
   overflow: hidden;
 }
 
 .top-nav {
-  height: 96px;
+  height: 92px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: start;
@@ -67,8 +66,8 @@ body::after {
 .brand-mark {
   font-family: Georgia, 'Times New Roman', serif;
   text-transform: lowercase;
-  font-size: 42px;
-  line-height: .7;
+  font-size: 40px;
+  line-height: .72;
   letter-spacing: -0.08em;
   color: #f1f1f1;
   font-weight: 900;
@@ -90,10 +89,10 @@ body::after {
 }
 
 .hero {
-  height: 360px;
-  padding: 0 58px 34px;
+  height: 320px;
+  padding: 0 58px 30px;
   display: grid;
-  grid-template-columns: 180px 1fr 220px;
+  grid-template-columns: 170px 1fr 230px;
   gap: 34px;
   align-items: end;
 }
@@ -122,17 +121,17 @@ body::after {
 
 .hero-copy h1 {
   margin: 0;
-  max-width: 620px;
-  font-size: clamp(42px, 4.2vw, 60px);
+  max-width: 650px;
+  font-size: clamp(42px, 4vw, 58px);
   line-height: .96;
   letter-spacing: -0.085em;
   font-weight: 650;
-  color: #d6d6d6;
+  color: #d8d8d8;
 }
 
 .hero-numbers {
   display: flex;
-  gap: 52px;
+  gap: 48px;
   align-items: start;
   justify-content: flex-end;
 }
@@ -156,51 +155,60 @@ body::after {
 }
 
 .blue-stage {
-  height: 310px;
+  height: 300px;
   margin: 0 14px 14px;
   background:
-    radial-gradient(circle at 60% 72%, rgba(255,255,255,.18), transparent 14%),
-    linear-gradient(130deg, #1d63f2, #0044d4 58%, #0d39a5);
+    linear-gradient(90deg, rgba(255,255,255,.10) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,.10) 1px, transparent 1px),
+    radial-gradient(circle at 70% 45%, rgba(255,255,255,.18), transparent 18%),
+    linear-gradient(130deg, #0f5cff, #0040c8 58%, #092d80);
+  background-size: 48px 48px, 48px 48px, auto, auto;
   position: relative;
   overflow: hidden;
 }
 
-.blue-stage::before,
+.blue-stage::before {
+  content: "INVOICE";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(76px, 13vw, 170px);
+  letter-spacing: -0.09em;
+  font-weight: 800;
+  color: rgba(255,255,255,.10);
+}
+
 .blue-stage::after {
   content: "";
   position: absolute;
-  width: 230px;
-  height: 430px;
-  border-radius: 42px;
-  background: linear-gradient(145deg, #191919, #050505);
-  border: 8px solid #050505;
-  box-shadow: 0 32px 55px rgba(0,0,0,.42);
-  bottom: -150px;
-  transform: rotate(-12deg);
-}
-
-.blue-stage::before {
-  left: 38%;
-  background:
-    linear-gradient(#151515, #050505),
-    linear-gradient(145deg, #f42b2b, #f5b301);
-}
-
-.blue-stage::after {
-  left: 57%;
-  transform: rotate(9deg);
+  width: 360px;
+  height: 220px;
+  right: 17%;
+  bottom: -45px;
+  background: #f4f4f4;
+  border-radius: 22px 22px 0 0;
+  box-shadow: 0 30px 70px rgba(0,0,0,.35);
+  transform: rotate(-4deg);
 }
 
 .floating-receipt {
   position: absolute;
   z-index: 2;
-  width: 230px;
-  min-height: 128px;
-  border-radius: 22px;
+  width: 245px;
+  min-height: 132px;
   padding: 20px;
-  background: rgba(0,0,0,.78);
-  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.84);
+  border: 1px solid rgba(255,255,255,.16);
   box-shadow: 0 22px 60px rgba(0,0,0,.35);
+}
+
+.floating-receipt::after {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-top: 16px;
+  background: repeating-linear-gradient(90deg, #555 0 26px, transparent 26px 38px);
 }
 
 .floating-receipt small {
@@ -248,8 +256,9 @@ body::after {
 }
 
 .stat-card {
-  min-height: 126px;
+  min-height: 118px;
   padding: 22px;
+  border-left: 3px solid #1d63f2;
 }
 
 .stat-card span {
@@ -259,18 +268,26 @@ body::after {
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: .08em;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .stat-card strong {
-  font-size: clamp(26px, 3vw, 42px);
+  font-size: clamp(26px, 3vw, 40px);
   letter-spacing: -0.07em;
   color: #e7e7e7;
-  font-weight: 600;
+  font-weight: 650;
+}
+
+.stat-card.good {
+  border-left-color: #55f6b0;
 }
 
 .stat-card.good strong {
   color: #55f6b0;
+}
+
+.stat-card.warning {
+  border-left-color: #f5c452;
 }
 
 .stat-card.warning strong {
@@ -293,13 +310,13 @@ h2 {
   align-items: center;
   gap: 12px;
   color: #dcdcdc;
-  font-size: clamp(30px, 3vw, 46px);
-  letter-spacing: -0.08em;
-  font-weight: 620;
+  font-size: clamp(28px, 2.8vw, 42px);
+  letter-spacing: -0.075em;
+  font-weight: 650;
 }
 
 h2 svg {
-  color: #8d8d8d;
+  color: #1d63f2;
 }
 
 .form-grid {
@@ -327,7 +344,7 @@ select,
 textarea {
   width: 100%;
   background: #0a0a0a;
-  border: 1px solid #1c1c1c;
+  border: 1px solid #242424;
   color: #eaeaea;
   border-radius: 0;
   padding: 15px 14px;
@@ -338,7 +355,7 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  border-color: #f3f3f3;
+  border-color: #1d63f2;
   background: #0f0f0f;
 }
 
@@ -375,9 +392,9 @@ button:hover,
 .primary-button {
   width: 100%;
   min-height: 56px;
-  background: #f1f1f1;
-  color: #050505;
-  border-color: #f1f1f1;
+  background: #1d63f2;
+  color: #fff;
+  border-color: #1d63f2;
 }
 
 .search-input {
@@ -396,6 +413,7 @@ button:hover,
   background: #080808;
   border: 1px solid #181818;
   padding: 18px;
+  border-left: 3px solid #1d63f2;
 }
 
 .record-top,
@@ -484,6 +502,7 @@ button:hover,
   padding: 20px;
   background: #080808;
   border: 1px solid #181818;
+  border-left: 3px solid #1d63f2;
 }
 
 .receipt-grid span {
